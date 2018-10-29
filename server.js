@@ -10,7 +10,7 @@ var d = {};
 
 app.get('/', function (req, res) {
 
-	res.send(JSON.stringify(d));
+	res.json(d);
 })
 
 
