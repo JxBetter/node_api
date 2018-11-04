@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<link rel="shortcut icon"href="favicon.ico">
+	<title>CallBack Result</title>
+	　　	<script src="https://code.jquery.com/jquery-3.1.1.min.js"></script>
+		<script type="text/javascript">
+		    function load() {
+		    	var url = "/ajax";
+		    	$.ajax({
+		    	        url : url,
+		    	        dataType: "json",
+		    	        data: {},
+		    	        type : "post",
+		    	        success : function(data) {
+		    	            p = document.getElementById('res');
+		    	            p.innerText = JSON.stringify(data)
+		    	        },
+		    	        error: function(XMLHttpRequest, textStatus, errorThrown) {
+		    	            alert(JSON.stringify(XMLHttpRequest));
+		    	        }
+		    	    });
+		    }
+
+		    $(function(){
+		        $("#submit").click(function(){
+		        var url = "/refresh";
+
+		        $.ajax({
+		                url : url,
+		                type: "post",
+		                data: {},
+		                success : function(data) {
+		                        // 参数为json类型的对象
+		                    load();
+		                }
+		            });
+		        });
+		    });
+		</script>
+</head>
+<body class="box", onload="load()">
+	<form>
+		<input id="submit" type="button" name="refresh" value="refresh" style="width: 100px; height: 20px"/>
+	</form>
+	<p id="res"></p>
+</body>
+</html>
