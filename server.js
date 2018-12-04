@@ -14,7 +14,7 @@ app.get('/', function (req, res) {
 })
 
 
-app.post('/', jsonParser, function (req, res) {
+app.post('/', urlencodedParser, function (req, res) {
 	d = req.body;
 	res.send(JSON.stringify({'result': 1, 'success': true}));
 })
