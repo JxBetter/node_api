@@ -20,6 +20,12 @@ app.post('/', urlencodedParser, function (req, res) {
 })
 
 
+app.get('/user', function (req, res){
+
+	res.send(JSON.stringify({'data': ['john', 'tom']}))
+})
+
+
 app.post('/ajax', urlencodedParser, function (req, res) {
 	console.log(req.body);
 	res.setHeader('Access-Control-Allow-Origin', 'null');
