@@ -22,7 +22,12 @@ app.post('/', urlencodedParser, function (req, res) {
 
 app.get('/user', function (req, res){
 
-	res.send(JSON.stringify({'data': ['john', 'tom']}))
+	res.send(JSON.stringify({'data': ['john', 'tom']}));
+})
+
+app.post('find', jsonParser, function (req, res){
+	
+	res.send(JSON.stringify(req.body));
 })
 
 
